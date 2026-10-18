@@ -1,0 +1,5 @@
+# GitHub Pages (Jekyll) settings.
+# The site is plain HTML; this only keeps repository files off the live site.
+exclude:
+  - README.md
+  - .htmlvalidate.json

@@ -11,7 +11,8 @@ Plain HTML and CSS. No framework, no JavaScript, no build step.
 - **Type:** Atkinson Hyperlegible Next and Mono, self-hosted (no third-party requests)
 - **Images:** WebP
 - **Dark mode:** follows the visitor's system setting
-- **Hosting:** Apache/LiteSpeed shared hosting; `.htaccess` handles HTTPS, redirects from old URLs, caching and security headers
+- **Hosting:** GitHub Pages from `main`, served at joshuaodubu.com (see `CNAME`)
+- **Checks:** `.github/workflows/check-site.yml` validates HTML and checks links on every push and weekly
 
 ## Structure
 
@@ -24,7 +25,8 @@ assets/css/style.css          All styles; design tokens at the top
 assets/fonts/                 Self-hosted woff2
 assets/img/                   Photo, project screenshots, social preview image
 docs/Joshua-Odubu-CV.pdf
-.htaccess  robots.txt  sitemap.xml  favicon.svg
+CNAME  _config.yml  robots.txt  sitemap.xml  favicons
+aboutme.html, blog.html, ...  Redirects from the old site's URLs
 ```
 
 ## Run locally
@@ -43,4 +45,10 @@ Then open http://localhost:8000. (Opening the files directly also works, except 
 
 ## Deploy
 
-Upload the repository contents (excluding `.git`) to the web root. Keep the TLS certificate on auto-renew.
+Push to `main`. GitHub Pages rebuilds the site in about a minute.
+
+To check HTML before pushing:
+
+```sh
+npx html-validate *.html writing/*.html
+```
